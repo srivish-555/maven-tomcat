@@ -55,13 +55,7 @@ jobs:
           name: Deploy to tomcat server
           command: scp maven-tomcat/target/WebMavenWebProject.war http://44.202.88.239:8080/
           
-  - eval $(ssh-agent -s)
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
-  - chmod 644 ~/.ssh/known_hosts
-        
+         
   # deploy:
   #   docker: 
   #     - image: cimg/openjdk:11.0
@@ -80,4 +74,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-  #test
+  

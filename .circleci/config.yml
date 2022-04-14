@@ -53,7 +53,7 @@ jobs:
           command: pwd && ls -la ./target
       - run:
           name: Deploy to tomcat server
-          command: scp /WebMavenWebProject.war /opt/tomcat10/webapps
+          command: sshexecute(server, "cp ${war.archiveName}  /opt/tomcat10/webapps")
           
          
   # deploy:

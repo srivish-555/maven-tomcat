@@ -53,7 +53,13 @@ jobs:
           command: pwd && ls -la ./target
       - run:
           name: Deploy to tomcat server
-          command: cp /home/sampleproject/WebMavenProject/target/WebMavenWebProject.war /opt/tomcat10/webapps
+          command: -v ssh-agent >/dev/null ||
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
         
   # deploy:
   #   docker: 

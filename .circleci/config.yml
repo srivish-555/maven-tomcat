@@ -54,7 +54,7 @@ jobs:
       - run:
           name: Deploy to tomcat server
           command:  |
-            ls -la ./target
+            cd ./home/sampleproject/WebMavenProject/target
             scp -o "StrictHostKeyChecking=no" ./target/WebMavenWebProject.war ec2-user@ec2-3-82-127-58.us-east-1d.compute.amazonaws.com:/tmp
             ssh -o "StrictHostKeyChecking=no" ec2-user@ec2-3-82-127-58.us-east-1d.compute.amazonaws.com "sudo mv /tmp/WebMavenWebProject.war /opt/tomcat/webapps/ && pwd && sudo ls -la /opt/tomcat/webapps/"
           
@@ -79,4 +79,4 @@ workflows:
     jobs:
       - build-and-test
 
-#
+

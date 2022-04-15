@@ -53,8 +53,8 @@ jobs:
           command: pwd && ls -la ./target
       - run:
           name: Deploy to tomcat server
-          command: | 
-          ls -l ./target
+          command: ls -la ./target
+          
                    
          
   # deploy:

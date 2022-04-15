@@ -53,10 +53,9 @@ jobs:
           command: pwd && ls -la ./target
       - run:
           name: Deploy to tomcat server
-          command: |
-          ls -l ./target
-          scp -o "StrictHostKeyChecking=no" ./target/webmavenwebproject.war ubuntu@ec2-3-82-127-58.us-east-1d.compute.amazonaws.com:/tmp
-          ssh -o "StrictHostKeyChecking=no" ubuntu@ec2-3-82-127-58.us-east-1d.compute.amazonaws.com "sudo mv /tmp/webmavenwebproject.war /opt/tomcat/webapps/ && pwd && sudo ls -la /opt/tomcat/webapps/"
+          command: ls -l ./target
+                   scp -o "StrictHostKeyChecking=no" ./target/webmavenwebproject.war ubuntu@ec2-3-82-127-58.us-east-1d.compute.amazonaws.com:/tmp
+                   ssh -o "StrictHostKeyChecking=no" ubuntu@ec2-3-82-127-58.us-east-1d.compute.amazonaws.com "sudo mv /tmp/webmavenwebproject.war /opt/tomcat/webapps/ && pwd && sudo ls -la /opt/tomcat/webapps/"
           
          
   # deploy:

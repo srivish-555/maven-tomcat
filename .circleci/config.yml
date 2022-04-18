@@ -83,8 +83,8 @@ workflows:
     jobs:
       - build:
           filters:
-            branches: 
-              only: sit 
+            branches: sit
+              only: 
       # - deploy:
       #     requires:
       #       - build
